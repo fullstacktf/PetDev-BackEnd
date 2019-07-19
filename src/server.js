@@ -1,12 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
-const path = require('path');
 const mongoose = require('mongoose');
 
-const router = express.Router();
 const routerUser = require('./router/routerUser.js');
-
-//const routerMovie = require("../router/routerMovie");
+const routerBooking = require('./router/routerBooking.js');
 
 const app = express();
 
@@ -15,12 +12,13 @@ app.use(express.json());
 // Connection to DB
 
 mongoose
-	.connect('mongodb://localhost/mongocrud', { useNewUrlParser: true })
-	.then(db => console.log('DB connection was successful'))
+	.connect('mongodb://localhost/petdev', { useNewUrlParser: true })
+	.then(console.log('DB connection was successful'))
 	.catch(err => console.log(err));
 
 // Settings
 
+// eslint-disable-next-line no-undef
 app.set('port', process.env.PORT || 3000);
 const port = app.get('port');
 
@@ -31,15 +29,8 @@ app.use(morgan('dev'));
 // Importing the routes
 
 app.use('/users', routerUser);
-//app.use("/movies", routerMovie);
+app.use('/bookings', routerBooking);
 
 // Run the server
 
 app.listen(3000, () => console.log(`Server on port ${port}`));
-
-// Hello World test
-
-/* app.get("/", function showAll(req, res){
-
-    res.send('Hello World!');
-  }); */
