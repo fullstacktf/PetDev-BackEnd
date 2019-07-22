@@ -92,7 +92,7 @@ const UserSchema = new Schema({
 			},
 			specie: {
 				required: true,
-				type: [String]
+				type: String
 			},
 			description: {
 				required: true,
@@ -117,4 +117,5 @@ const UserSchema = new Schema({
 		}
 	]
 });
+
 module.exports = mongoose.model('users', UserSchema);
