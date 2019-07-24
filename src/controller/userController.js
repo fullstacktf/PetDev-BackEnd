@@ -1,4 +1,4 @@
-const User = require('../model/User');
+const User = require('../models/User');
 
 async function showAll(req, res) {
 	const users = await User.find();
@@ -27,7 +27,9 @@ async function addUser(req, res) {
 
 async function deleteUser(req, res) {
 	const id = req.params.id;
-	await User.findByIdAndDelete(id);
+	console.log(req.params.id);
+	await User.findByIdAndRemove(id);
+	res.json(id);
 }
 
 module.exports = { showAll, findById, updateUser, addUser, deleteUser };
