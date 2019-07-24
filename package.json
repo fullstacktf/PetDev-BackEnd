@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "dev": "nodemon src/server.js",
     "build": "parcel serve src/server.js --global global --open"
   },
@@ -12,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "jest": "^24.8.0",
     "mongoose": "^5.6.5",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
