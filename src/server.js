@@ -12,7 +12,7 @@ app.use(express.json());
 // Connection to DB
 
 mongoose
-	.connect('mongodb://localhost/petdev', { useNewUrlParser: true })
+	.connect('mongodb://178.128.207.132/petdev', { useNewUrlParser: true })
 	.then(console.log('DB connection was successful'))
 	.catch(err => console.log(err));
 
