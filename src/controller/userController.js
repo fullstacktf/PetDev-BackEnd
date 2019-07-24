@@ -25,4 +25,9 @@ async function addUser(req, res) {
 	res.json(newUser);
 }
 
-module.exports = { showAll, findById, updateUser, addUser };
+async function deleteUser(req, res) {
+	const id = req.params.id;
+	await User.findByIdAndDelete(id);
+}
+
+module.exports = { showAll, findById, updateUser, addUser, deleteUser };

@@ -18,6 +18,10 @@ const UserSchema = new Schema({
 		required: true,
 		type: String
 	},
+	email: {
+		required: true,
+		type: String
+	},
 	passWord: {
 		required: true,
 		type: String
