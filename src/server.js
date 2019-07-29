@@ -32,7 +32,7 @@ mongoose
 // Settings
 
 // eslint-disable-next-line no-undef
-app.set('port', process.env.PORT || 3003);
+app.set('port', process.env.PORT || 3000);
 const port = app.get('port');
 
 // Middlewares
@@ -57,9 +57,9 @@ app.use((req, res, next) => {
 
 // Importing the routes
 
-app.use('/', routerUser);
+app.use('/users', routerUser);
 app.use('/bookings', routerBooking);
 
 // Run the server
 
-app.listen(3005, () => console.log(`Server on port ${port}`));
+app.listen(port, () => console.log(`Server on port ${port}`));

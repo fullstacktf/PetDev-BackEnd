@@ -1,4 +1,8 @@
-<form action="/signup" method="POST">
+<%- layout('layout/main.ejs') %>
+
+<h1>Signup</h1>
+
+<form action="/users/signup" method="POST">
     <input type="email" name="email" placeholder="Insert Email">
     <input type="password" name="password" placeholder="Insert Pass">
     <button type="submit">Singup</button>
