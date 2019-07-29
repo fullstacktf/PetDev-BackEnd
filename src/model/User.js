@@ -97,8 +97,7 @@ const UserSchema = new Schema({
 });
 
 UserSchema.methods.encryptPassword = (password) => {
-	console.log("entra hostia ya")
-	return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+		return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 }
 
 UserSchema.methods.comparePassword = function (password) {

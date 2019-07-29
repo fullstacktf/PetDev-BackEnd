@@ -22,8 +22,13 @@ passport.use('local-signup', new LocalStrategy({
         return done(null, false, req.flash('signupMessage', 'The Email is alredy taken'));
     }else{
         const newUser = new User();
+        newUser.name = req.body.name;
+        newUser.lastName = req.body.lastName;
+        newUser.userName = req.body.userName;
         newUser.email = email;
         newUser.password = newUser.encryptPassword(password);
+        newUser.birthDate = req.body.userDate;
+        newUser.registerDate = new Date();
         await newUser.save();
         done(null, newUser);
     }
