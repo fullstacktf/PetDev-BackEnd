@@ -22,9 +22,10 @@ async function updateBooking(req, res) {
 }
 
 async function addBooking(req, res) {
-	const newUser = new Booking(req.body);
-	newUser.save();
-	res.json(newUser);
+	const newBooking = new Booking(req.body);
+	await newBooking.save();
+	console.log(newBooking);
+	res.json(newBooking);
 }
 
 async function deleteBooking(req, res) {

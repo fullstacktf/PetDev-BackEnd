@@ -9,10 +9,12 @@ const app = express();
 
 app.use(express.json());
 
+app.use(express.urlencoded());
+
 // Connection to DB
 
 mongoose
-	.connect('mongodb://178.128.207.132/petdev', { useNewUrlParser: true })
+	.connect('mongodb://159.65.59.55/petdev', { useNewUrlParser: true })
 	.then(console.log('DB connection was successful'))
 	.catch(err => console.log(err));
 
