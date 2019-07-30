@@ -21,7 +21,7 @@ mongoose
 // Settings
 
 // eslint-disable-next-line no-undef
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3003);
 const port = app.get('port');
 
 // Middlewares
