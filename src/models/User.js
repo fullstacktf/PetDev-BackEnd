@@ -35,7 +35,7 @@ const UserSchema = new Schema({
 		type: String
 	},
 	avatarURL: {
-		type: Sthttps://www.gps-coordinates.net/ring
+		type: String
 	},
 	description: {
 		type: String
@@ -49,11 +49,12 @@ const UserSchema = new Schema({
 	rating: {
 		type: Number
 	},
+	geo : GeoSchema,
+	country: {
+		type: String
+	},
 	address: {
-		geo : GeoSchema,
-		country: {
-			type: String
-		},
+
 		province: {
 			type: String
 		},

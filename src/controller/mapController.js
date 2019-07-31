@@ -1,30 +1,21 @@
 const User = require('../models/User');
 
-async function showUsers(req, res) {
-	/*const { lat, long, filter } = req.params;
-	let bestUsers = {};
-	console.log(`Lat: ${lat} | Long: ${long} | ${filter}`);
-	
-	 	switch (filter) {
-	case 'rating':
-		bestUsers = await User.find({})
-			.sort({ rating: 'desc' })
-			.exec();
-		break;
-	case 'near':
-		bestUsers = await User.find({})
-			.sort({ rating: 'desc' })
-			.exec();
-		break;
-	default:
-		res.send('Error en la consulta a BBDD');
-		break;
-	} */
-	User.geoNear(
-		{type: }
-	);
+function showUsers(req, res, next) {
 
-	res.send(bestUsers);
+	User.aggregate([
+        {
+            $geoNear: {
+                near: [ 11 , 12 ] ,
+                distanceField: "dist.calculated",
+                maxDistance: 1000000000,
+                spherical: true                
+            }
+        }
+    ],
+	function(err, results) {
+console.log(results)	}
+)
 }
+
 
 module.exports = { showUsers };
