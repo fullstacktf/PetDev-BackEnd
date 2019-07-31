@@ -1,6 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const GeoSchema = new Schema({
+		type: {
+			type: String,
+			default: "Point"
+		},
+		coordinates: {
+			type: [Number],
+			index: "2dsphere"
+		}
+});
+
 const UserSchema = new Schema({
 	name: {
 		type: String
@@ -39,6 +50,7 @@ const UserSchema = new Schema({
 		type: Number
 	},
 	address: {
+		geo : GeoSchema,
 		country: {
 			type: String
 		},
@@ -47,15 +59,6 @@ const UserSchema = new Schema({
 		},
 		adressLine: {
 			type: String
-		},
-		geo: {
-			type: {
-				type: String,
-				enum: ['Point']
-			},
-			coordinates: {
-				type: [Number]
-			}
 		},
 		postal: {
 			type: Number
