@@ -10,6 +10,10 @@ const GeoSchema = new Schema({
 			type: [Number],
 			index: "2dsphere"
 		}
+
+
+
+		
 });
 
 const UserSchema = new Schema({
@@ -35,7 +39,7 @@ const UserSchema = new Schema({
 		type: String
 	},
 	avatarURL: {
-		type: String
+		type: Sthttps://www.gps-coordinates.net/ring
 	},
 	description: {
 		type: String
