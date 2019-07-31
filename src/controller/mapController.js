@@ -1,12 +1,27 @@
-/* const User = require('../models/User');
- */
-function showUsers(req, res) {
+const User = require('../models/User');
+
+async function showUsers(req, res) {
 	const { lat, long, filter } = req.params;
+	let bestUsers = {};
 	console.log(`Lat: ${lat} | Long: ${long} | ${filter}`);
-	res.send(req.params);
+
+	switch (filter) {
+	case 'rating':
+		bestUsers = await User.find({})
+			.sort({ rating: 'desc' })
+			.exec();
+		break;
+	case 'near':
+		bestUsers = await User.find({})
+			.sort({ rating: 'desc' })
+			.exec();
+		break;
+	default:
+		res.send('Error en la consulta a BBDD');
+		break;
+	}
+
+	res.send(bestUsers);
 }
-/* 	const users = await User.find();
-	console.log(users);
-	res.json(users);
-} */
+
 module.exports = { showUsers };
