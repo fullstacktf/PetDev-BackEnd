@@ -1,11 +1,11 @@
 const User = require('../models/User');
 
 async function showUsers(req, res) {
-	const { lat, long, filter } = req.params;
+	/*const { lat, long, filter } = req.params;
 	let bestUsers = {};
 	console.log(`Lat: ${lat} | Long: ${long} | ${filter}`);
-
-	switch (filter) {
+	
+	 	switch (filter) {
 	case 'rating':
 		bestUsers = await User.find({})
 			.sort({ rating: 'desc' })
@@ -19,7 +19,10 @@ async function showUsers(req, res) {
 	default:
 		res.send('Error en la consulta a BBDD');
 		break;
-	}
+	} */
+	User.geoNear(
+		{type: }
+	);
 
 	res.send(bestUsers);
 }
