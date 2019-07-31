@@ -48,9 +48,14 @@ const UserSchema = new Schema({
 		adressLine: {
 			type: String
 		},
-		coords: {
-			lat: Number,
-			long: Number
+		geo: {
+			type: {
+				type: String,
+				enum: ['Point']
+			},
+			coordinates: {
+				type: [Number]
+			}
 		},
 		postal: {
 			type: Number
