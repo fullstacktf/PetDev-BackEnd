@@ -11,9 +11,6 @@ const GeoSchema = new Schema({
 			index: "2dsphere"
 		}
 
-
-
-		
 });
 
 const UserSchema = new Schema({
