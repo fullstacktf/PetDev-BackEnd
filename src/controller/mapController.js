@@ -1,18 +1,21 @@
 const User = require('../models/User');
 
 function showUsers(req, res, next) {
+	const { lng, lat, maxDist } = req.query;
+	console.log(lng, lat, maxDist);
 	User.aggregate(
 		[
 			{
 				$geoNear: {
-					near: [-16.315813064575195, 28.48370514774725],
+					near: [+lng, +lat],
 					distanceField: 'dist.calculated',
-					maxDistance: 0.5,
+					maxDistance: +maxDist,
 					spherical: true
 				}
 			}
 		],
-		function(err, results) {
+		function (err, results) {
+			results.map(user => user.dist.calculated = user.dist.calculated * 6.371); // Distance from radians to kms
 			res.json(results);
 		}
 	);
