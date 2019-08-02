@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors')
 
 const routerUser = require('./router/routerUser.js');
 const routerBooking = require('./router/routerBooking.js');
@@ -10,12 +11,14 @@ const app = express();
 
 app.use(express.json());
 
+app.use(cors());
+
 //CORS Header
-app.all('/', function(req, res, next) {
+/* app.all('/', function(req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
 	res.header('Access-Control-Allow-Headers', 'X-Requested-With');
 	next();
-});
+}); */
 
 // Connection to DB
 
