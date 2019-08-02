@@ -13,7 +13,7 @@ app.use(express.json());
 const corsOptions = {
 	origin: ['http://localhost:3000', 'http://localhost:3001']
 }
-app.use(cors(corsOptions));
+app.use(cors());
 
 //CORS Header
 /* app.all('/', function(req, res, next) {
