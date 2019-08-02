@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const GeoSchema = new Schema({
-		type: {
-			type: String,
-			default: "Point"
-		},
-		coordinates: {
-			type: [Number],
-			index: "2dsphere"
-		}
+	type: {
+		type: String,
+		default: 'Point'
+	},
+	coordinates: {
+		type: [Number],
+		index: '2dsphere'
+	}
 });
 
 const UserSchema = new Schema({
@@ -49,12 +49,11 @@ const UserSchema = new Schema({
 	rating: {
 		type: Number
 	},
-	geo : GeoSchema,
+	geo: GeoSchema,
 	country: {
 		type: String
 	},
 	address: {
-
 		province: {
 			type: String
 		},
