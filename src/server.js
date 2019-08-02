@@ -10,8 +10,10 @@ const routerMap = require('./router/routerMap.js');
 const app = express();
 
 app.use(express.json());
-
-app.use(cors());
+const corsOptions = {
+	origin: '*'
+}
+app.use(cors(corsOptions));
 
 //CORS Header
 /* app.all('/', function(req, res, next) {
