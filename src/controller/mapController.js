@@ -1,6 +1,6 @@
 const User = require('../models/User');
 
-function showUsers(req, res, next) {
+function showUsers(req, res) {
 	const { lng, lat, maxDist } = req.query;
 	console.log(lng, lat, maxDist);
 	User.aggregate(
@@ -14,8 +14,12 @@ function showUsers(req, res, next) {
 				}
 			}
 		],
-		function (err, results) {
-			results.map(user => user.dist.calculated = user.dist.calculated * 6.371); // Distance from radians to kms
+
+		function(err, results) {
+			results.map(
+				user => (user.dist.calculated = user.dist.calculated * 6.371)
+			); // Distance from radians to kms
+
 			res.json(results);
 		}
 	);
