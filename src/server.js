@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 const routerUser = require('./router/routerUser.js');
 const routerBooking = require('./router/routerBooking.js');
+const routerMap = require('./router/routerMap.js');
 
 const app = express();
 
@@ -12,7 +13,7 @@ app.use(express.json());
 // Connection to DB
 
 mongoose
-	.connect('mongodb://178.128.207.132/petdev', { useNewUrlParser: true })
+	.connect('mongodb://159.65.59.55/petdev', { useNewUrlParser: true })
 	.then(console.log('DB connection was successful'))
 	.catch(err => console.log(err));
 
@@ -30,6 +31,7 @@ app.use(morgan('dev'));
 
 app.use('/users', routerUser);
 app.use('/bookings', routerBooking);
+app.use('/map', routerMap);
 
 // Run the server
 
