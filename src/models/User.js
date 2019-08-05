@@ -23,6 +23,9 @@ const UserSchema = new Schema({
 	userName: {
 		type: String
 	},
+	houseType: {
+		type: String
+	},
 	email: {
 		type: String
 	},
@@ -30,10 +33,10 @@ const UserSchema = new Schema({
 		type: String
 	},
 	birthDate: {
-		type: String
+		type: Date
 	},
 	registerDate: {
-		type: String
+		type: Date
 	},
 	avatarURL: {
 		type: String
@@ -50,23 +53,46 @@ const UserSchema = new Schema({
 	rating: {
 		type: Number
 	},
-	geo: GeoSchema,
-	country: {
-		type: String
+	createdAt: {
+		type: Date
 	},
+	updateAt: {
+		type: Date
+	},
+	messages: [
+		{
+			text: {
+				type: String
+			},
+			fromUserID: {
+				type: String
+			},
+			sentDate: {
+				type: Date
+			},
+			readMessage: {
+				type: Boolean
+			},
+			bookingID: {
+				type: String
+			}
+		}
+	],
+
+	geo: GeoSchema,
+
 	address: {
+		country: {
+			type: String
+		},
 		province: {
 			type: String
 		},
 		adressLine: {
 			type: String
 		},
-
 		postal: {
 			type: Number
-		},
-		houseType: {
-			type: String
 		}
 	},
 	pets: [
@@ -78,7 +104,7 @@ const UserSchema = new Schema({
 				type: String
 			},
 			birthDate: {
-				type: String
+				type: Date
 			},
 			energy: {
 				type: String
@@ -91,16 +117,6 @@ const UserSchema = new Schema({
 			},
 			picturesURL: {
 				type: [String]
-			}
-		}
-	],
-	whiteList: [
-		{
-			startDate: {
-				type: String
-			},
-			endDate: {
-				type: String
 			}
 		}
 	]
