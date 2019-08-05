@@ -1,6 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const bcrypt = require('bcrypt-nodejs')
+const bcrypt = require('bcrypt-nodejs');
+
+const GeoSchema = new Schema({
+	type: {
+		type: String,
+		default: 'Point'
+	},
+	coordinates: {
+		type: [Number],
+		index: '2dsphere'
+	}
+});
 
 const UserSchema = new Schema({
 	name: {
@@ -39,19 +50,18 @@ const UserSchema = new Schema({
 	rating: {
 		type: Number
 	},
-	adress: {
-		country: {
-			type: String
-		},
+	geo: GeoSchema,
+	country: {
+		type: String
+	},
+	address: {
 		province: {
 			type: String
 		},
 		adressLine: {
 			type: String
 		},
-		coord: {
-			type: String
-		},
+
 		postal: {
 			type: Number
 		},
@@ -74,7 +84,7 @@ const UserSchema = new Schema({
 				type: String
 			},
 			specie: {
-				type: [String]
+				type: String
 			},
 			description: {
 				type: String
@@ -96,11 +106,12 @@ const UserSchema = new Schema({
 	]
 });
 
-UserSchema.methods.encryptPassword = (password) => {
-		return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-}
+UserSchema.methods.encryptPassword = password => {
+	return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+};
 
-UserSchema.methods.comparePassword = function (password) {
+UserSchema.methods.comparePassword = function(password) {
 	return bcrypt.compareSync(password, this.password);
-}
+};
+
 module.exports = mongoose.model('users', UserSchema);
