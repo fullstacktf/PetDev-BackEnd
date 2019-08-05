@@ -35,9 +35,6 @@ const UserSchema = new Schema({
 	birthDate: {
 		type: Date
 	},
-	registerDate: {
-		type: Date
-	},
 	avatarURL: {
 		type: String
 	},
