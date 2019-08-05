@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const bcrypt = require('bcrypt-nodejs');
 
 const GeoSchema = new Schema({
 	type: {
@@ -25,7 +26,7 @@ const UserSchema = new Schema({
 	email: {
 		type: String
 	},
-	passWord: {
+	password: {
 		type: String
 	},
 	birthDate: {
@@ -60,6 +61,7 @@ const UserSchema = new Schema({
 		adressLine: {
 			type: String
 		},
+
 		postal: {
 			type: Number
 		},
@@ -103,5 +105,13 @@ const UserSchema = new Schema({
 		}
 	]
 });
+
+UserSchema.methods.encryptPassword = password => {
+	return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+};
+
+UserSchema.methods.comparePassword = function(password) {
+	return bcrypt.compareSync(password, this.password);
+};
 
 module.exports = mongoose.model('users', UserSchema);

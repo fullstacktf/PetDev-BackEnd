@@ -20,7 +20,9 @@ async function updateUser(req, res) {
 }
 
 async function addUser(req, res) {
+	console.log(req.body);
 	const newUser = new User(req.body);
+	console.log(newUser);
 	newUser.save();
 	res.json(newUser);
 }
