@@ -85,11 +85,11 @@ const UserSchema = new Schema({
 		province: {
 			type: String
 		},
-		adressLine: {
+		addressLine: {
 			type: String
 		},
 		postal: {
-			type: Number
+			type: String
 		}
 	},
 	pets: [
