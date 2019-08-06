@@ -92,25 +92,23 @@ const UserSchema = new Schema({
       type: String
     }
   },
-  pets: [
-    {
-      chip: {
-        type: String
-      },
-      petName: {
-        type: String
-      },
-      specie: {
-        type: String
-      },
-      petDescription: {
-        type: String
-      },
-      picturesURL: {
-        type: String
-      }
+  pets: {
+    chip: {
+      type: String
+    },
+    petName: {
+      type: String
+    },
+    specie: {
+      type: String
+    },
+    petDescription: {
+      type: String
+    },
+    picturesURL: {
+      type: String
     }
-  ]
+  }
 });
 
 UserSchema.methods.encryptPassword = password => {
