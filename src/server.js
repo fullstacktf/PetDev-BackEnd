@@ -17,7 +17,6 @@ const routerMap = require('./router/routerMap.js');
 
 //initialization
 const app = express();
-const __dirname = path.resolve();
 require('./passport/local-auth');
 
 app.set('views', path.join(__dirname, 'views'));
