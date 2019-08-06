@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const engine = require('ejs-mate');
 const path = require('path');
 const passport = require('passport');
-const passportLocal = require('passport-local');
+//const passportLocal = require('passport-local');
 const session = require('express-session');
 const flash = require('connect-flash');
 
@@ -17,6 +17,7 @@ const routerMap = require('./router/routerMap.js');
 
 //initialization
 const app = express();
+const __dirname = path.resolve();
 require('./passport/local-auth');
 
 app.set('views', path.join(__dirname, 'views'));

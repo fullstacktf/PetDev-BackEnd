@@ -10,7 +10,7 @@ router.post('/', userController.addUser);
 router.put('/:id', userController.updateUser);
 router.delete('/:id', userController.deleteUser);
 
-router.get('/signup', (req, res, next) => {
+router.get('/signup', (req, res) => {
 	res.render('signup');
 });
 
@@ -23,7 +23,7 @@ router.post(
 	})
 );
 
-router.get('/signin', (req, res, next) => {
+router.get('/signin', (req, res) => {
 	res.render('signin');
 });
 
@@ -36,15 +36,15 @@ router.post(
 	})
 );
 
-router.get('/profile', isAuthenticated, (req, res, next) => {
+router.get('/profile', isAuthenticated, (req, res) => {
 	res.render('profile');
 });
 
-router.get('/home', (req, res, next) => {
+router.get('/home', (req, res) => {
 	res.render('index');
 });
 
-router.get('/logout', (req, res, next) => {
+router.get('/logout', (req, res) => {
 	req.logOut();
 	res.redirect('home');
 });
