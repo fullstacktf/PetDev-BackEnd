@@ -2,7 +2,6 @@ const User = require('../models/User');
 
 function showUsers(req, res) {
 	const { lng, lat, maxDist } = req.query;
-	console.log(lng, lat, maxDist);
 	User.aggregate(
 		[
 			{
