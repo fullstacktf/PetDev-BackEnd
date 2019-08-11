@@ -2,7 +2,6 @@ const Booking = require('../models/Booking');
 
 async function showAll(req, res) {
 	const bookings = await Booking.find();
-	console.log(bookings);
 	res.json(bookings);
 }
 
@@ -17,7 +16,6 @@ async function updateBooking(req, res) {
 	const updatedUser = await Booking.findByIdAndUpdate(id, req.body, {
 		new: true
 	});
-	console.log(req.body);
 	res.json(updatedUser);
 }
 
@@ -29,7 +27,6 @@ async function addBooking(req, res) {
 
 async function deleteBooking(req, res) {
 	const id = req.params.id;
-	console.log(req.params.id);
 	await Booking.findByIdAndRemove(id);
 	res.json(id);
 }
