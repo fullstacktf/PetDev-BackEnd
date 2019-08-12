@@ -36,7 +36,7 @@ mongoose
 // Settings
 
 // eslint-disable-next-line no-undef
-app.set('port', process.env.PORT || 3001);
+app.set('port', process.env.PORT || 3005);
 const port = app.get('port');
 
 // Middlewares
@@ -69,4 +69,4 @@ app.use('/api/map', routerMap);
 
 // Run the server
 
-app.listen(port, () => console.log(`Server on port ${port}`));
+app.listen(3001, () => console.log(`Server on port ${port}`));
