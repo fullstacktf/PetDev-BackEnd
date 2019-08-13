@@ -8,7 +8,7 @@ function showUsers(req, res) {
 				$geoNear: {
 					near: [+lng, +lat],
 					distanceField: 'dist.calculated',
-					maxDistance: +maxDist,
+					maxDistance: +maxDist/6378137,
 					spherical: true
 				}
 			}
