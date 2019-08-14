@@ -1,20 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controller/userController');
-const cors = require('cors');
 
 const passport = require('passport');
 
-var corsOptions = {
-	origin: 'http://fanimals.me',
-	optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-
-router.get('/', cors(corsOptions), userController.showAll);
-router.get('/:id', cors(corsOptions), userController.findById);
-router.post('/', cors(corsOptions), userController.addUser);
-router.put('/:id', cors(corsOptions), userController.updateUser);
-router.delete('/:id', cors(corsOptions), userController.deleteUser);
+router.get('/', userController.showAll);
+router.get('/:id', userController.findById);
+router.post('/', userController.addUser);
+router.put('/:id', userController.updateUser);
+router.delete('/:id', userController.deleteUser);
 
 router.get('/signup', (req, res) => {
 	res.render('signup');

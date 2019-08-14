@@ -24,7 +24,22 @@ app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+	origin: ['https://fanimals.me', 'http://localhost:3000'],
+	allowedHeaders: [
+		'Origin',
+		'X-Requested-With',
+		'Content-Type',
+		'Accept',
+		'Authorization',
+		'X-Access-Token'
+	],
+	credentials: true,
+	methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+	preflightContinue: false
+};
+
+app.use(cors(corsOptions));
 
 // Connection to DB
 
