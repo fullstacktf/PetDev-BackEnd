@@ -1,5 +1,5 @@
 {
-  "name": "petdev-mongodb",
+  "name": "petdev-backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "test:watch": "jest --watch",
     "dev": "nodemon src/server.js",
     "build": "parcel serve src/server.js --global global --open",
-    "prod": "node src/server.js"
+    "start": "node src/server.js"
   },
   "author": "",
   "license": "ISC",
